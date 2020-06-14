@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="primary" dark clipped-left app>
+    <v-app-bar color="primary" dark dense clipped-left app>
       <v-toolbar-title>SCRUMBLE</v-toolbar-title>
     </v-app-bar>
 
