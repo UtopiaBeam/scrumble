@@ -30,6 +30,8 @@ export default class Navbar extends Vue {
     { title: 'Backlog', icon: 'mdi-view-list', href: '/backlog' },
     { title: 'Kanban Board', icon: 'mdi-trello', href: '/board' },
     { title: 'Report', icon: 'mdi-file-document', href: '/report' },
+    { title: 'Planning Poker', icon: 'mdi-cards', href: '/poker' },
+    { title: 'Retrospective', icon: 'mdi-comment-multiple', href: '/poker' },
   ]
 }
 </script>
