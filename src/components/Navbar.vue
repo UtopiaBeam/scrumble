@@ -27,11 +27,15 @@ import { Vue, Component } from 'vue-property-decorator'
 export default class Navbar extends Vue {
   private drawer = true
   private readonly menus = [
-    { title: 'Backlog', icon: 'mdi-view-list', href: '/backlog' },
-    { title: 'Kanban Board', icon: 'mdi-trello', href: '/board' },
-    { title: 'Report', icon: 'mdi-file-document', href: '/report' },
-    { title: 'Planning Poker', icon: 'mdi-cards', href: '/poker' },
-    { title: 'Retrospective', icon: 'mdi-comment-multiple', href: '/poker' },
+    { title: 'Backlog', icon: 'mdi-view-list', href: '/app/backlog' },
+    { title: 'Kanban Board', icon: 'mdi-trello', href: '/app/board' },
+    { title: 'Report', icon: 'mdi-file-document', href: '/app/report' },
+    { title: 'Planning Poker', icon: 'mdi-cards', href: '/app/poker' },
+    {
+      title: 'Retrospective',
+      icon: 'mdi-comment-multiple',
+      href: '/app/retrospective',
+    },
   ]
 }
 </script>
