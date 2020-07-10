@@ -42,8 +42,8 @@ export default class Navbar extends Vue {
   private drawer = this.isLargeScreen
   private readonly menus = [
     { title: 'Backlog', icon: 'mdi-view-list', href: '/app/backlog' },
-    { title: 'Kanban Board', icon: 'mdi-view-column', href: '/app/board' },
-    { title: 'Report', icon: 'mdi-file-document', href: '/app/report' },
+    { title: 'Board', icon: 'mdi-view-column', href: '/app/board' },
+    { title: 'Report', icon: 'mdi-chart-line', href: '/app/report' },
     { title: 'Planning Poker', icon: 'mdi-cards', href: '/app/poker' },
     { title: 'Retrospective', icon: 'mdi-replay', href: '/app/retrospective' },
   ]
