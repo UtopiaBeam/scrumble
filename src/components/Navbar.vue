@@ -17,9 +17,8 @@
           <v-list-item-icon>
             <v-icon>mdi-page-first</v-icon>
           </v-list-item-icon>
-          <v-list-item-content />
         </v-list-item>
-        <v-divider />
+        <v-divider v-if="!isLargeScreen" />
         <v-list-item v-for="menu in menus" :key="menu.title" :to="menu.href">
           <v-list-item-icon>
             <v-icon>{{ menu.icon }}</v-icon>
