@@ -3,7 +3,12 @@
     <Navbar />
     <v-main>
       <v-container fluid>
-        <router-view />
+        <v-card flat>
+          <v-card-title class="headline">{{ $route.meta.title }}</v-card-title>
+          <v-card-text class="pt-12">
+            <router-view />
+          </v-card-text>
+        </v-card>
       </v-container>
     </v-main>
   </v-app>
