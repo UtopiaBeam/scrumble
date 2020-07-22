@@ -2,6 +2,8 @@
 
 Scrumble is my personal project to manage a scrum powered by [Vue](https://vuejs.org/) + [Vuetify](https://vuetifyjs.com/en/). It is heavily inspired by [Trello](https://trello.com/) and [Jira](https://www.atlassian.com/software/jira). The main purpose of this project is to create an easy-to-use scrum management tool for myself, but contribution is very welcomed.
 
+### The wireframe is [here](https://www.figma.com/file/pUqpSPBMsrJlqqpNgBEkIf/Scrumble?node-id=0%3A1), please tell me if you want to design it. I will be tearfully appreciate.
+
 ## Project setup
 
 A step by step series of examples that tell you how to get a development env running
