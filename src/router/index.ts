@@ -8,11 +8,6 @@ Vue.use(VueRouter)
 
 const routes: Array<RouteConfig> = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home,
-  },
-  {
     path: '/login',
     name: 'Login',
     component: () =>
@@ -24,6 +19,10 @@ const routes: Array<RouteConfig> = [
     component: AppHome,
     children: appRoutes,
   },
+  {
+    path: '*',
+    redirect: '/app'
+  }
 ]
 
 const router = new VueRouter({
