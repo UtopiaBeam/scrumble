@@ -15,7 +15,7 @@
       <v-list nav dense>
         <v-list-item v-if="!isLargeScreen" @click="toggleDrawer">
           <v-list-item-icon>
-            <v-icon>mdi-page-first</v-icon>
+            <v-icon>mdi-chevron-left</v-icon>
           </v-list-item-icon>
         </v-list-item>
         <v-divider v-if="!isLargeScreen" />
