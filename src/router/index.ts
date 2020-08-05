@@ -30,4 +30,9 @@ const router = new VueRouter({
   routes,
 })
 
+router.beforeEach((to, _, next) => {
+  document.title = `${to.meta.title} | Scrumble`
+  next()
+})
+
 export default router
