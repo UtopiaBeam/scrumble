@@ -10,7 +10,8 @@
             <p class="my-1 font-weight-medium">Password</p>
             <v-text-field v-model="password" outlined type="password" />
             <v-btn color="primary" block large>Login</v-btn>
-            <v-divider class="mt-6" />
+            <v-btn color="primary" class="mt-2" block text>Register</v-btn>
+            <!-- <v-divider class="mt-6" />
             <v-btn
               v-for="button in buttons"
               :key="button.service"
@@ -22,7 +23,7 @@
             >
               <v-icon left>{{ button.icon }}</v-icon>
               Login with {{ button.service }}
-            </v-btn>
+            </v-btn>-->
           </v-card-text>
         </v-card>
       </v-row>
