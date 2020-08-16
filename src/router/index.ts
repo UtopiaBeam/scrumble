@@ -9,6 +9,7 @@ const routes: RouteConfig[] = [
   {
     path: '/login',
     name: 'Login',
+    meta: { title: 'Login' },
     component: () =>
       import(/* webpackChunkName: "login" */ '@/views/Login.vue'),
   },
@@ -20,8 +21,8 @@ const routes: RouteConfig[] = [
   },
   {
     path: '*',
-    redirect: '/app'
-  }
+    redirect: '/app',
+  },
 ]
 
 const router = new VueRouter({
