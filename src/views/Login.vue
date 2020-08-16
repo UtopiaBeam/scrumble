@@ -2,7 +2,7 @@
   <v-app>
     <v-container fluid fill-height>
       <v-row justify="center" align="center">
-        <v-card width="450">
+        <v-card width="450" elevation="4">
           <v-card-title class="justify-center">SCRUMBLE</v-card-title>
           <v-card-text>
             <p class="my-1 font-weight-medium">Username</p>
