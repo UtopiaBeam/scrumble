@@ -1,1 +1,1 @@
-export * from './epicCard'
+export * from './epic'
