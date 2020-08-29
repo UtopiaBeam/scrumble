@@ -1,6 +1,6 @@
-$body-font-family: 'Lato', sans-serif;
+$body-font-family: 'Lato', 'Roboto', sans-serif;
 
 $btn-text-transform: 'none';
-$btn-letter-spacing: 1.2;
+$btn-letter-spacing: 0.00625rem;
 
 @import '~vuetify/src/styles/styles.sass';
