@@ -3,14 +3,20 @@
     <v-container fluid fill-height>
       <v-row justify="center" align="center">
         <v-card width="450" elevation="4">
-          <v-card-title class="justify-center">SCRUMBLE</v-card-title>
+          <v-card-title class="text-h4 justify-center">SCRUMBLE</v-card-title>
           <v-card-text>
             <p class="my-1 font-weight-medium">Username</p>
             <v-text-field v-model="username" outlined />
             <p class="my-1 font-weight-medium">Password</p>
             <v-text-field v-model="password" outlined type="password" />
-            <v-btn color="primary" block large>Login</v-btn>
-            <v-btn color="primary" class="mt-2" block text>Register</v-btn>
+            <v-row justify="space-between" align="center" no-gutters>
+              <v-col cols="auto">
+                Don't have an account? <a href="/register">Register</a>
+              </v-col>
+              <v-col cols="auto">
+                <v-btn color="primary">Login</v-btn>
+              </v-col>
+            </v-row>
             <!-- <v-divider class="mt-6" />
             <v-btn
               v-for="button in buttons"
@@ -45,3 +51,12 @@ export default class Login extends Vue {
   ]
 }
 </script>
+
+<style lang="scss" scope>
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+</style>
