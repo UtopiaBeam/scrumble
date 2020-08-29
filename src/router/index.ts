@@ -14,6 +14,13 @@ const routes: RouteConfig[] = [
       import(/* webpackChunkName: "login" */ '@/views/Login.vue'),
   },
   {
+    path: '/register',
+    name: 'Register',
+    meta: { title: 'Register' },
+    component: () =>
+      import(/* webpackChunkName: "register" */ '@/views/Register.vue'),
+  },
+  {
     path: '/app',
     component: AppHome,
     children: appRoutes,
