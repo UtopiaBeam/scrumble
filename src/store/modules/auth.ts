@@ -1,6 +1,8 @@
 import { createModule, mutation, action } from 'vuex-class-component'
 import { RegisterDTO, LoginDTO, User } from '@/types'
 import router from '@/router'
+import { apolloClient } from '@/plugins/apollo'
+import gql from 'graphql-tag'
 
 const VuexModule = createModule({ namespaced: 'auth' })
 
@@ -38,7 +40,22 @@ export default class extends VuexModule {
 
   @action
   async login(loginDTO: LoginDTO) {
-    // TODO
-    router.replace('/app')
+    const response = await apolloClient.mutate<{ login: { token: string } }>({
+      mutation: gql`
+        mutation login($data: LoginMutation!) {
+          login(data: $data) {
+            token
+          }
+        }
+      `,
+      variables: {
+        data: loginDTO,
+      },
+      fetchPolicy: 'no-cache',
+    })
+    if (response.data) {
+      this.setToken(response.data.login.token)
+      router.push('/app')
+    }
   }
 }
