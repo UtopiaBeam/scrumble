@@ -6,13 +6,13 @@
           <v-card-title class="text-h4 justify-center">SCRUMBLE</v-card-title>
           <v-card-text>
             <p class="my-1 font-weight-medium">Username</p>
-            <v-text-field v-model="user.username" outlined  />
+            <v-text-field v-model="user.username" outlined />
             <p class="my-1 font-weight-medium">Email</p>
-            <v-text-field v-model="user.email" outlined  />
+            <v-text-field v-model="user.email" outlined />
             <p class="my-1 font-weight-medium">Password</p>
-            <v-text-field v-model="user.password" outlined  type="password" />
+            <v-text-field v-model="user.password" outlined type="password" />
             <p class="my-1 font-weight-medium">Confirm password</p>
-            <v-text-field v-model="confirmPassword" outlined  type="password" />
+            <v-text-field v-model="confirmPassword" outlined type="password" />
             <v-row justify="space-between" align="center" no-gutters>
               <v-col cols="auto">
                 Already have an account? <a href="/login">Login</a>
@@ -36,7 +36,7 @@ export default class Login extends Vue {
   private user = {
     username: '',
     email: '',
-    password: ''
+    password: '',
   }
   private confirmPassword = ''
 }

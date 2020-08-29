@@ -1,6 +1,6 @@
 <template>
   <v-card width="300" color="grey lighten-3" flat>
-    <v-card-title>Epics</v-card-title>
+    <v-card-title class="title">Epics</v-card-title>
     <v-card-text>
       <v-list color="white" class="py-0">
         <template v-for="(epic, idx) in epics">
@@ -8,15 +8,17 @@
           <v-list-item
             :key="`epic_${epic.id}`"
             @click="fetchEpic(epic.id)"
-            :style="{borderLeft: `${epic.color} solid 5px`}"
+            :style="{ borderLeft: `${epic.color} solid 5px` }"
           >
             <v-list-item-content>
               <v-list-item-title v-text="epic.name" />
             </v-list-item-content>
             <v-list-item-action>
-              <v-hover v-slot:default="{hover}">
+              <v-hover v-slot:default="{ hover }">
                 <v-btn icon @click.stop="editEpic(epic.id)">
-                  <v-icon v-if="hover" color="grey darken-1" small>mdi-pencil</v-icon>
+                  <v-icon v-if="hover" color="grey darken-1" small
+                    >mdi-pencil</v-icon
+                  >
                 </v-btn>
               </v-hover>
             </v-list-item-action>
@@ -31,7 +33,7 @@
 </template>
 
 <script lang="ts">
-import { Vue, Component, Prop } from 'vue-property-decorator'
+import { Vue, Component } from 'vue-property-decorator'
 import { vxm } from '@/store'
 
 @Component({
