@@ -1,5 +1,5 @@
-import { createModule, mutation } from 'vuex-class-component'
-import { Epic } from '../../types'
+import { createModule, mutation, action } from 'vuex-class-component'
+import { Epic } from '@/types'
 
 const VuexModule = createModule({ namespaced: 'epic' })
 
@@ -9,7 +9,6 @@ export default class extends VuexModule {
     { id: '2', name: 'Epic 2', color: 'red' },
     { id: '3', name: 'Epic 3', color: 'green' },
   ]
-  private _currentEpicId = ''
 
   get epics() {
     return this._epics
@@ -19,15 +18,13 @@ export default class extends VuexModule {
     return (id: string) => this._epics.find(e => e.id === id)
   }
 
-  get currentEpic() {
-    return this.epic(this._currentEpicId)
-  }
-
-  @mutation setEpics(epics: Epic[]) {
+  @mutation
+  setEpics(epics: Epic[]) {
     this._epics = epics
   }
 
-  @mutation setCurrentEpicId(id: string) {
-    this._currentEpicId = id
+  @action
+  async fetchEpic(id: string) {
+    // TODO: Fetch epic by id
   }
 }
