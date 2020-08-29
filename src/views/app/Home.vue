@@ -4,7 +4,9 @@
     <v-main>
       <v-container fluid>
         <v-card flat>
-          <v-card-title class="headline">{{ $route.meta.title }}</v-card-title>
+          <v-card-title class="headline font-weight-bold">{{
+            $route.meta.title
+          }}</v-card-title>
           <v-card-text class="pt-12">
             <router-view />
           </v-card-text>
