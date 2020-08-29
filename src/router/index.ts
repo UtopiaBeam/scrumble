@@ -15,7 +15,6 @@ const routes: RouteConfig[] = [
   },
   {
     path: '/app',
-    name: 'App',
     component: AppHome,
     children: appRoutes,
   },
