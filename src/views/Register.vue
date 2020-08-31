@@ -117,7 +117,7 @@ export default class Register extends Vue {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 a {
   text-decoration: none;
   &:hover {

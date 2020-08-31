@@ -69,7 +69,7 @@ export default class Login extends Vue {
 }
 </script>
 
-<style lang="scss" scope>
+<style lang="scss" scoped>
 a {
   text-decoration: none;
   &:hover {
