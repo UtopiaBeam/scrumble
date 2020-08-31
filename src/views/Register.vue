@@ -4,7 +4,7 @@
       <v-row justify="center" align="center">
         <v-card width="450" elevation="4">
           <v-card-title class="text-h4 justify-center">SCRUMBLE</v-card-title>
-          <v-card-text>
+          <v-card-text class="mt-4">
             <v-form ref="form" v-model="formValid" @submit.prevent="register">
               <v-text-field
                 v-model="user.username"

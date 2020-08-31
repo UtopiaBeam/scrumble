@@ -4,13 +4,17 @@
       <v-row justify="center" align="center">
         <v-card width="450" elevation="4">
           <v-card-title class="text-h4 justify-center">SCRUMBLE</v-card-title>
-          <v-card-text>
+          <v-card-text class="mt-4">
             <v-form @submit.prevent="login">
-              <p :class="labelClass">Username</p>
-              <v-text-field v-model="user.username" :error="error" outlined />
-              <p :class="labelClass">Password</p>
+              <v-text-field
+                v-model="user.username"
+                label="Username"
+                :error="error"
+                outlined
+              />
               <v-text-field
                 v-model="user.password"
+                label="Password"
                 :error="error"
                 outlined
                 type="password"
