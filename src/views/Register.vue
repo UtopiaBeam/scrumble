@@ -109,8 +109,7 @@ export default class Register extends Vue {
     try {
       this.error = false
       await vxm.auth.register(this.user)
-    } catch (e) {
-      console.error(e)
+    } catch {
       this.error = true
     }
   }
