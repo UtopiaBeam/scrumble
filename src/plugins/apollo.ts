@@ -12,12 +12,12 @@ const httpLink = new HttpLink({
   uri: `${process.env.VUE_APP_SERVER_URL}/graphql`,
 })
 
-const authLink = setContext((_, { headers }) => {
+const authLink = setContext((_, { headers = {} }) => {
   const token = vxm.auth.token
-  if (headers && token) {
+  if (token) {
     headers.authorization = `Bearer ${token}`
   }
-  return headers
+  return { headers }
 })
 
 export const apolloClient = new ApolloClient({
