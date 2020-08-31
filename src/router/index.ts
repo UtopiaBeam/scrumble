@@ -2,6 +2,7 @@ import Vue from 'vue'
 import VueRouter, { RouteConfig } from 'vue-router'
 import AppHome from '../views/app/Home.vue'
 import { appRoutes } from './app'
+import { vxm } from '../store'
 
 Vue.use(VueRouter)
 
@@ -24,6 +25,13 @@ const routes: RouteConfig[] = [
     path: '/app',
     component: AppHome,
     children: appRoutes,
+    beforeEnter: (to, from, next) => {
+      if (!vxm.auth.isLoggedIn) {
+        next('/login')
+      } else {
+        next()
+      }
+    },
   },
   {
     path: '*',
