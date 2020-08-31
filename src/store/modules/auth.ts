@@ -7,29 +7,21 @@ import gql from 'graphql-tag'
 const VuexModule = createModule({ namespaced: 'auth' })
 
 export default class extends VuexModule {
-  private _token = ''
-  private _user?: User
+  token = ''
+  me?: User
 
   get isLoggedIn() {
-    return this._token !== ''
-  }
-
-  get token() {
-    return this._token
-  }
-
-  get user() {
-    return this._user
+    return this.token !== ''
   }
 
   @mutation
   setToken(token: string) {
-    this._token = token
+    this.token = token
   }
 
   @mutation
-  setUser(user: User) {
-    this._user = user
+  setMe(me: User) {
+    this.me = me
   }
 
   @action
@@ -49,6 +41,7 @@ export default class extends VuexModule {
     })
     if (response.data) {
       this.setToken(response.data.register.token)
+      this.fetchMe()
       router.push('/app')
     }
   }
@@ -70,7 +63,26 @@ export default class extends VuexModule {
     })
     if (response.data) {
       this.setToken(response.data.login.token)
+      this.fetchMe()
       router.push('/app')
+    }
+  }
+
+  @action
+  async fetchMe() {
+    const response = await apolloClient.query<{ me: User }>({
+      query: gql`
+        query me {
+          me {
+            id
+            username
+            email
+          }
+        }
+      `,
+    })
+    if (response.data) {
+      this.setMe(response.data.me)
     }
   }
 
