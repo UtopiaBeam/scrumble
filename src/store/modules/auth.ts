@@ -73,4 +73,10 @@ export default class extends VuexModule {
       router.push('/app')
     }
   }
+
+  @action
+  async logout() {
+    this.setToken('')
+    router.push('/login')
+  }
 }
