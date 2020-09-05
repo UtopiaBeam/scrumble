@@ -15,7 +15,7 @@
             </v-list-item-content>
             <v-list-item-action>
               <v-hover v-slot:default="{ hover }">
-                <v-btn icon @click.stop="editEpic(epic.id)">
+                <v-btn icon @click.stop="editEpic(epic)">
                   <v-icon v-if="hover" color="grey darken-1" small
                     >mdi-pencil</v-icon
                   >
@@ -27,27 +27,46 @@
       </v-list>
     </v-card-text>
     <v-card-actions>
-      <v-btn block text>+ Add Epic</v-btn>
+      <v-btn block text @click="addEpic">+ Add Epic</v-btn>
     </v-card-actions>
+    <EpicDialog
+      :open.sync="openDialog"
+      :op="epic ? 'Update' : 'Add'"
+      :epic="epic"
+    />
   </v-card>
 </template>
 
 <script lang="ts">
-import { Vue, Component } from 'vue-property-decorator'
+import { Vue, Component, Model } from 'vue-property-decorator'
 import { vxm } from '@/store'
+import EpicDialog from '@/components/EpicDialog.vue'
+import { Epic } from '@/types'
 
 @Component({
+  components: {
+    EpicDialog,
+  },
   computed: {
     epics: () => vxm.epic.epics,
   },
 })
 export default class EpicList extends Vue {
-  async fetchEpic(id: string) {
-    console.log('fetch', id)
+  private openDialog = false
+  @Model() private epic?: Epic
+
+  fetchEpic(id: string) {
+    vxm.epic.fetchEpic(id)
   }
 
-  async editEpic(id: string) {
-    console.log('edit', id)
+  addEpic() {
+    this.epic = undefined
+    this.openDialog = true
+  }
+
+  editEpic(epic: Epic) {
+    this.epic = epic
+    this.openDialog = true
   }
 }
 </script>
