@@ -5,9 +5,14 @@ const VuexModule = createModule({ namespaced: 'epic' })
 
 export default class extends VuexModule {
   private _epics: Epic[] = [
-    { id: '1', name: 'Epic 1', color: 'blue', description: 'Test for epic 1' },
-    { id: '2', name: 'Epic 2', color: 'red' },
-    { id: '3', name: 'Epic 3', color: 'green' },
+    {
+      id: '1',
+      name: 'Epic 1',
+      color: '#1E88E5',
+      description: 'Test for epic 1',
+    },
+    { id: '2', name: 'Epic 2', color: '#2E7D32' },
+    { id: '3', name: 'Epic 3', color: '#EF6C00' },
   ]
 
   get epics() {
@@ -26,5 +31,16 @@ export default class extends VuexModule {
   @action
   async fetchEpic(id: string) {
     // TODO: Fetch epic by id
+  }
+
+  @action
+  async addEpic(epic: Epic) {
+    this._epics.push({ ...epic, id: this._epics.length + 1 + '' })
+  }
+
+  @action
+  async updateEpic(epic: Epic) {
+    const index = this._epics.findIndex(e => e.id === epic.id)
+    this._epics[index] = { ...this._epics[index], ...epic }
   }
 }
