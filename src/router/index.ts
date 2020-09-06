@@ -13,6 +13,13 @@ const routes: RouteConfig[] = [
     meta: { title: 'Login' },
     component: () =>
       import(/* webpackChunkName: "login" */ '@/views/Login.vue'),
+    beforeEnter: (to, from, next) => {
+      if (vxm.auth.isLoggedIn) {
+        next('/app')
+      } else {
+        next()
+      }
+    }
   },
   {
     path: '/register',
