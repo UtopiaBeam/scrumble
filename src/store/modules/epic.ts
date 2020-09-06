@@ -19,10 +19,6 @@ export default class extends VuexModule {
     return this._epics
   }
 
-  get epic() {
-    return (id: string) => this._epics.find(e => e.id === id)
-  }
-
   @mutation
   setEpics(epics: Epic[]) {
     this._epics = epics
