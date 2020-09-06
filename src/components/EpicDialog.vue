@@ -1,6 +1,6 @@
 <template>
-  <v-dialog v-model="syncedOpen" width="600px">
-    <v-card>
+  <v-dialog v-model="syncedOpen" width="500px">
+    <v-card class="pa-2">
       <v-form>
         <v-card-title>
           <v-row align="center">
