@@ -7,7 +7,7 @@
           <v-card-title class="headline font-weight-bold">{{
             $route.meta.title
           }}</v-card-title>
-          <v-card-text class="pt-12">
+          <v-card-text>
             <router-view />
           </v-card-text>
         </v-card>
