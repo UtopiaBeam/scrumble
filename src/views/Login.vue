@@ -24,7 +24,9 @@
                   Don't have an account? <a href="/register">Register</a>
                 </v-col>
                 <v-col cols="auto">
-                  <v-btn type="submit" color="primary">Login</v-btn>
+                  <v-btn type="submit" color="primary" :loading="loading"
+                    >Login</v-btn
+                  >
                 </v-col>
               </v-row>
             </v-form>
@@ -46,6 +48,7 @@ export default class Login extends Vue {
     password: '',
   }
   private error = false
+  private loading = false
   private readonly buttons = [
     { service: 'GitHub', color: '#000000', icon: 'mdi-github' },
     { service: 'Google', color: '#DB4437', icon: 'mdi-google' },
@@ -59,12 +62,14 @@ export default class Login extends Vue {
   }
 
   async login() {
+    this.loading = true
     try {
       this.error = false
       await vxm.auth.login(this.user)
     } catch {
       this.error = true
     }
+    this.loading = false
   }
 }
 </script>

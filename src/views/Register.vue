@@ -57,7 +57,9 @@
                   Already have an account? <a href="/login">Login</a>
                 </v-col>
                 <v-col cols="auto">
-                  <v-btn type="submit" color="primary">Register</v-btn>
+                  <v-btn type="submit" color="primary" :loading="loading"
+                    >Register</v-btn
+                  >
                 </v-col>
               </v-row>
             </v-form>
@@ -80,6 +82,7 @@ export default class Register extends Vue {
     password: '',
   }
   private error = false
+  private loading = false
   private formValid = true
   private confirmPassword = ''
   private readonly rules = {
@@ -106,12 +109,14 @@ export default class Register extends Vue {
   }
 
   async register() {
+    this.loading = true
     try {
       this.error = false
       await vxm.auth.register(this.user)
     } catch {
       this.error = true
     }
+    this.loading = false
   }
 }
 </script>
