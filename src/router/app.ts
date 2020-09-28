@@ -1,27 +1,13 @@
 import { RouteConfig } from 'vue-router'
 
 export const appRoutes: RouteConfig[] = [
-  { path: '', redirect: 'backlog' },
-  {
-    path: 'backlog',
-    name: 'Backlog',
-    component: () =>
-      import(/* webpackChunkName: "app.backlog" */ '@/views/app/Backlog.vue'),
-    meta: { title: 'Backlog' },
-  },
+  { path: '', redirect: 'board' },
   {
     path: 'board',
     name: 'Board',
     component: () =>
       import(/* webpackChunkName: "app.board" */ '@/views/app/Board.vue'),
     meta: { title: 'Board' },
-  },
-  {
-    path: 'report',
-    name: 'Report',
-    component: () =>
-      import(/* webpackChunkName: "app.report" */ '@/views/app/Report.vue'),
-    meta: { title: 'Report' },
   },
   {
     path: 'poker',

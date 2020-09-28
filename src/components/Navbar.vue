@@ -26,13 +26,21 @@
       :expand-on-hover="isLargeScreen"
       app
     >
+      <v-list-item>
+        <v-list-item-icon>
+          <v-icon :color="currentProject ? 'primary' : 'default'">{{
+            currentProject ? 'mdi-shape' : 'mdi-shape-outline'
+          }}</v-icon>
+        </v-list-item-icon>
+        <v-list-item-title>
+          {{ currentProject ? currentProject.name : 'Select project' }}
+        </v-list-item-title>
+        <v-btn v-if="!isLargeScreen" icon @click="toggleDrawer"
+          ><v-icon>mdi-chevron-left</v-icon></v-btn
+        >
+      </v-list-item>
+      <v-divider />
       <v-list nav dense>
-        <v-list-item v-if="!isLargeScreen" @click="toggleDrawer">
-          <v-list-item-icon>
-            <v-icon>mdi-chevron-left</v-icon>
-          </v-list-item-icon>
-        </v-list-item>
-        <v-divider v-if="!isLargeScreen" />
         <v-list-item v-for="menu in navMenus" :key="menu.title" :to="menu.href">
           <v-list-item-icon>
             <v-icon>{{ menu.icon }}</v-icon>
@@ -54,9 +62,7 @@ import { vxm } from '@/store'
 export default class Navbar extends Vue {
   private drawer = this.isLargeScreen
   private readonly navMenus = [
-    { title: 'Backlog', icon: 'mdi-view-list', href: '/app/backlog' },
     { title: 'Board', icon: 'mdi-view-column', href: '/app/board' },
-    { title: 'Report', icon: 'mdi-chart-line', href: '/app/report' },
     { title: 'Planning Poker', icon: 'mdi-cards', href: '/app/poker' },
     { title: 'Retrospective', icon: 'mdi-replay', href: '/app/retrospective' },
   ]

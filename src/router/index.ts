@@ -19,7 +19,7 @@ const routes: RouteConfig[] = [
       } else {
         next()
       }
-    }
+    },
   },
   {
     path: '/register',
